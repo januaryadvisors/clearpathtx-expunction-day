@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statewide Expunction Day — ClearPathTX</title>
+  <meta name="description" content="Join us July 31–August 1, 2026 for Texas Statewide Expunction Day. Free legal help to clear your record, available across Texas." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Dev Banner -->
+  <div class="dev-banner" role="alert">
+    ⚠️ This page is not yet live and is under construction. Content is subject to change before the official launch.
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <img
+      src="assets/clearpathtx-logo.png"
+      alt="ClearPath TX — Statewide Expunction Project"
+      class="hero__logo"
+    />
+    <p class="hero__eyebrow">Texas Statewide Event</p>
+    <h1 class="hero__title">Statewide<br /><span>Expunction Day</span></h1>
+    <p class="hero__dates">July 31 – August 1, 2026</p>
+    <p class="hero__location">Free Legal Help · Across Texas</p>
+    <div class="hero__divider"></div>
+  </header>
+
+  <!-- About -->
+  <section class="about" aria-labelledby="about-heading">
+    <div class="container">
+      <p class="section-label">About the Event</p>
+      <h2 class="section-title" id="about-heading">A Fresh Start for Texans</h2>
+      <p>
+        Statewide Expunction Day is a free, two-day event bringing together legal aid attorneys from
+        across Texas to help eligible residents clear their criminal records. An expunction removes
+        an arrest or charge from your record — meaning it can no longer be seen by employers,
+        landlords, or the public.
+      </p>
+      <p>
+        This event is presented by the <strong>ClearPath TX Statewide Expunction Project</strong>,
+        a partnership of Texas legal aid organizations dedicated to making record-clearing accessible
+        to all Texans, regardless of income.
+      </p>
+
+      <div class="about__cards">
+        <div class="about__card">
+          <h3>What Is Expunction?</h3>
+          <p>
+            Expunction is a legal process that erases eligible arrests and charges from your record
+            under Texas law (Chapter 55, Texas Code of Criminal Procedure).
+          </p>
+        </div>
+        <div class="about__card">
+          <h3>Who May Be Eligible?</h3>
+          <p>
+            You may qualify if your case was dismissed, you were acquitted, or you completed deferred
+            adjudication for certain offenses. Eligibility depends on your specific case.
+          </p>
+        </div>
+        <div class="about__card">
+          <h3>Why Attend?</h3>
+          <p>
+            Get free one-on-one time with a legal aid attorney, learn if you qualify, and take the
+            first steps toward clearing your record — at no cost to you.
+          </p>
+        </div>
+        <div class="about__card">
+          <h3>Is It Really Free?</h3>
+          <p>
+            Yes. All services provided through this event are completely free for income-eligible
+            Texans. There is no catch.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- County Finder -->
+  <section class="county-finder" aria-labelledby="finder-heading">
+    <p class="section-label">Find Your Legal Aid</p>
+    <h2 class="section-title" id="finder-heading">Select Your County</h2>
+    <p class="county-finder__subtitle">
+      Texas is served by four legal aid organizations. Select your county below to find
+      the one that can help you.
+    </p>
+
+    <form id="county-form" class="county-finder__form" novalidate>
+      <label for="county-select">Your County</label>
+      <select id="county-select" class="county-finder__select" aria-label="Select your Texas county">
+        <option value="">— Select a county —</option>
+      </select>
+      <button type="submit" class="county-finder__btn">Find My Legal Aid →</button>
+    </form>
+
+    <div id="county-result" class="county-result" aria-live="polite"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <img
+      src="assets/clearpathtx-logo.png"
+      alt="ClearPath TX"
+      class="footer__logo"
+    />
+    <p>A project of <strong>Legal Aid of Northwest Texas</strong></p>
+    <p>Statewide Expunction Project</p>
+    <p><a href="https://www.lanwt.org" target="_blank" rel="noopener">www.lanwt.org</a></p>
+    <p class="footer__disclaimer">
+      This website provides general information only and does not constitute legal advice.
+      Eligibility for expunction depends on your individual circumstances. Contact a legal
+      aid attorney to understand your options.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

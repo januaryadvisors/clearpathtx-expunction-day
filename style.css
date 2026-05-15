@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:  #003057;
+  --red:   #DA291C;
+  --yellow:#F6B700;
+  --white: #FFFFFF;
+  --light-gray: #f5f5f5;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+/* ── Dev Banner ── */
+.dev-banner {
+  background: var(--yellow);
+  color: var(--navy);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--navy);
+}
+
+/* ── Hero ── */
+.hero {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 60px 20px 50px;
+  text-align: center;
+}
+
+.hero__logo {
+  max-width: 380px;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.hero__eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero__title span {
+  color: var(--yellow);
+}
+
+.hero__dates {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.hero__location {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+}
+
+.hero__divider {
+  width: 60px;
+  height: 4px;
+  background: var(--red);
+  margin: 28px auto 0;
+  border-radius: 2px;
+}
+
+/* ── About ── */
+.about {
+  background: var(--white);
+  padding: 64px 20px;
+}
+
+.container {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.about p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.about__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.about__card {
+  background: var(--light-gray);
+  border-top: 4px solid var(--red);
+  border-radius: 4px;
+  padding: 24px 20px;
+}
+
+.about__card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.about__card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+/* ── County Finder ── */
+.county-finder {
+  background: var(--navy);
+  padding: 64px 20px;
+  color: var(--white);
+  text-align: center;
+}
+
+.county-finder .section-label {
+  color: var(--yellow);
+}
+
+.county-finder .section-title {
+  color: var(--white);
+}
+
+.county-finder__subtitle {
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  margin-bottom: 36px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.county-finder__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.county-finder__form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  color: var(--yellow);
+}
+
+.county-finder__select {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--white);
+  border: 3px solid var(--yellow);
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23003057' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+}
+
+.county-finder__select:focus {
+  outline: none;
+  border-color: var(--white);
+}
+
+.county-finder__btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.county-finder__btn:hover {
+  background: #b8221a;
+}
+
+/* Result panel */
+.county-result {
+  display: none;
+  margin-top: 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: left;
+  color: var(--navy);
+}
+
+.county-result.visible {
+  display: block;
+}
+
+.county-result__header {
+  background: var(--yellow);
+  padding: 14px 20px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.county-result__body {
+  padding: 24px 20px;
+}
+
+.county-result__org {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.county-result__desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.county-result__link {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--navy);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.county-result__link:hover {
+  background: #004a85;
+}
+
+/* dual org (Harris County) */
+.county-result__dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.county-result__dual-card {
+  border: 2px solid var(--light-gray);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.county-result__dual-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.county-result__dual-card p {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.county-result__dual-card a {
+  display: inline-block;
+  padding: 8px 14px;
+  background: var(--navy);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+  .county-result__dual { grid-template-columns: 1fr; }
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--navy);
+  border-top: 4px solid var(--red);
+  padding: 36px 20px;
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer__logo {
+  max-width: 200px;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.footer a {
+  color: var(--yellow);
+  text-decoration: none;
+}
+
+.footer__disclaimer {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
