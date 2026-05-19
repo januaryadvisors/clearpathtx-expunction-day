@@ -122,7 +122,7 @@ function handleCountySubmit(e) {
           <div class="county-result__dual-card">
             <h4>Beacon Law</h4>
             <p>Free legal services for people experiencing homelessness and low-income individuals in Houston.</p>
-            <a href="https://www.beaconlaw.org" target="_blank" rel="noopener">Visit Beacon Law</a>
+            <a href="https://www.jotform.com/beaconlaw/record-clearing" target="_blank" rel="noopener">Visit Beacon Law</a>
           </div>
         </div>
       </div>`;
