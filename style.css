@@ -4,6 +4,7 @@
 
 :root {
   --navy:  #003057;
+  --sky:   #D6E4F2;
   --red:   #DA291C;
   --yellow:#F6B700;
   --white: #FFFFFF;
@@ -32,7 +33,7 @@ body {
 
 /* ── Hero ── */
 .hero {
-  background-color: var(--white);
+  background-color: var(--sky);
   color: var(--navy);
   padding: 60px 20px 50px;
   text-align: center;
@@ -336,19 +337,16 @@ body {
 
 /* ── Footer ── */
 .footer {
-  background: var(--navy);
+  background: var(--sky);
   border-top: 4px solid var(--red);
   padding: 36px 20px;
   text-align: center;
-  color: rgba(255,255,255,0.7);
+  color: rgba(0, 48, 87, 0.7);
 }
 
 .footer__logo {
-  max-width: 220px;
+  max-width: 200px;
   margin-bottom: 16px;
-  background: var(--white);
-  padding: 12px 18px;
-  border-radius: 10px;
 }
 
 .footer p {
@@ -357,14 +355,14 @@ body {
 }
 
 .footer a {
-  color: var(--yellow);
+  color: var(--red);
   text-decoration: none;
 }
 
 .footer__disclaimer {
   margin-top: 16px;
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.45);
+  color: rgba(0, 48, 87, 0.55);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
