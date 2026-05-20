@@ -78,19 +78,19 @@ const orgInfo = {
     name: "Legal Aid of Northwest Texas",
     desc: "Serving 114 counties across North, West, and Central Texas.",
     url: "https://www.lanwt.org",
-    label: "Visit Legal Aid of NW Texas",
+    label: "Apply",
   },
   trla: {
     name: "Texas RioGrande Legal Aid (TRLA)",
     desc: "Serving 68 counties across South, West, and Central Texas.",
     url: "https://www.trla.org",
-    label: "Visit TRLA",
+    label: "Apply",
   },
   lsla: {
     name: "Lone Star Legal Aid",
     desc: "Serving 72 counties across East and Southeast Texas, including Houston.",
     url: "https://lonestarlegal.org",
-    label: "Visit Lone Star Legal Aid",
+    label: "Apply",
   },
 };
 
@@ -117,12 +117,12 @@ function handleCountySubmit(e) {
           <div class="county-result__dual-card">
             <h4>Lone Star Legal Aid</h4>
             <p>Free civil legal services for low-income Texans in the Houston area.</p>
-            <a href="https://lonestarlegal.org" target="_blank" rel="noopener">Visit Lone Star Legal Aid</a>
+            <a href="https://lonestarlegal.org" target="_blank" rel="noopener">Apply</a>
           </div>
           <div class="county-result__dual-card">
             <h4>Beacon Law</h4>
             <p>Free legal services for people experiencing homelessness and low-income individuals in Houston.</p>
-            <a href="https://www.jotform.com/beaconlaw/record-clearing" target="_blank" rel="noopener">Visit Beacon Law</a>
+            <a href="https://www.jotform.com/beaconlaw/record-clearing" target="_blank" rel="noopener">Apply</a>
           </div>
         </div>
       </div>`;
