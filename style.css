@@ -32,19 +32,16 @@ body {
 
 /* ── Hero ── */
 .hero {
-  background-color: var(--navy);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--navy);
   padding: 60px 20px 50px;
   text-align: center;
 }
 
 .hero__logo {
-  max-width: 420px;
+  max-width: 400px;
   width: 100%;
   margin-bottom: 36px;
-  background: var(--white);
-  padding: 22px 30px;
-  border-radius: 14px;
 }
 
 .hero__eyebrow {
@@ -52,7 +49,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--yellow);
+  color: var(--red);
   margin-bottom: 12px;
 }
 
@@ -64,20 +61,20 @@ body {
 }
 
 .hero__title span {
-  color: var(--yellow);
+  color: var(--red);
 }
 
 .hero__dates {
   font-size: clamp(1.1rem, 3vw, 1.5rem);
   font-weight: 600;
-  color: var(--white);
+  color: var(--navy);
   margin-bottom: 8px;
 }
 
 .hero__location {
   font-size: 1rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.75);
+  color: rgba(0, 48, 87, 0.7);
 }
 
 .hero__divider {
