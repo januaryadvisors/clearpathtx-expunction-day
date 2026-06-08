@@ -83,7 +83,7 @@ const orgInfo = {
   trla: {
     name: "Texas RioGrande Legal Aid (TRLA)",
     desc: "Serving 68 counties across South, West, and Central Texas.",
-    url: "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f9bNOiHpSQ1JulD1IxGad_lUNlFXTDNUMzVTNVo0TVBYQlpTQzJGMlA5VS4u&route=shorturl",
+    url: "https://www.trla.org/help",
     label: "Apply",
   },
   lsla: {
@@ -92,6 +92,14 @@ const orgInfo = {
     url: "https://lonestarlegal.org",
     label: "Apply",
   },
+};
+
+// Per-county apply-link overrides. TRLA uses county-specific intake forms for
+// El Paso and Brewster; all other TRLA counties fall back to the general help page.
+// NOTE: remove the Brewster override on 2026-08-02 (it falls back to trla.org/help).
+const countyUrlOverrides = {
+  "El Paso": "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f9bNOiHpSQ1JulD1IxGad_lUNlFXTDNUMzVTNVo0TVBYQlpTQzJGMlA5VS4u&route=shorturl",
+  "Brewster": "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f3aNFzITsmxHmvIcPn0n095UNkxMVlBTQlpYUUEwTzczTk1WMjFXOU02VC4u&route=shorturl",
 };
 
 function handleCountySubmit(e) {
@@ -128,12 +136,13 @@ function handleCountySubmit(e) {
       </div>`;
   } else {
     const info = orgInfo[org];
+    const url = countyUrlOverrides[county] || info.url;
     resultEl.innerHTML = `
       <div class="county-result__header">${county} County — Your Legal Aid Organization</div>
       <div class="county-result__body">
         <p class="county-result__org">${info.name}</p>
         <p class="county-result__desc">${info.desc}</p>
-        <a class="county-result__link" href="${info.url}" target="_blank" rel="noopener">${info.label} →</a>
+        <a class="county-result__link" href="${url}" target="_blank" rel="noopener">${info.label} →</a>
       </div>`;
   }
 
