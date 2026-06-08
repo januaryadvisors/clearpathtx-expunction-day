@@ -77,13 +77,13 @@ const orgInfo = {
   lanwt: {
     name: "Legal Aid of Northwest Texas",
     desc: "Serving 114 counties across North, West, and Central Texas.",
-    url: "https://www.lanwt.org",
+    url: "https://forms.cloud.microsoft/r/5cCiuTLXPG?origin=lprLink",
     label: "Apply",
   },
   trla: {
     name: "Texas RioGrande Legal Aid (TRLA)",
     desc: "Serving 68 counties across South, West, and Central Texas.",
-    url: "https://www.trla.org",
+    url: "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f9bNOiHpSQ1JulD1IxGad_lUNlFXTDNUMzVTNVo0TVBYQlpTQzJGMlA5VS4u&route=shorturl",
     label: "Apply",
   },
   lsla: {
