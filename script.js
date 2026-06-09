@@ -89,7 +89,7 @@ const orgInfo = {
   lsla: {
     name: "Lone Star Legal Aid",
     desc: "Serving 72 counties across East and Southeast Texas, including Houston.",
-    url: "https://lonestarlegal.org",
+    url: "https://lslaoi.legalserver.org/modules/matter/extern_intake.php?pid=132&h=f0baaf&state_uuid=af9cb316-601e-11f1-ac7d-0eea33fe5494&f=375&d_id=6",
     label: "Apply",
   },
 };
@@ -125,7 +125,7 @@ function handleCountySubmit(e) {
           <div class="county-result__dual-card">
             <h4>Lone Star Legal Aid</h4>
             <p>Free civil legal services for low-income Texans in the Houston area.</p>
-            <a href="https://lonestarlegal.org" target="_blank" rel="noopener">Apply</a>
+            <a href="https://lslaoi.legalserver.org/modules/matter/extern_intake.php?pid=132&h=f0baaf&state_uuid=af9cb316-601e-11f1-ac7d-0eea33fe5494&f=375&d_id=6" target="_blank" rel="noopener">Apply</a>
           </div>
           <div class="county-result__dual-card">
             <h4>Beacon Law</h4>
