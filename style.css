@@ -147,6 +147,21 @@ body {
   margin: 0;
 }
 
+.about__card p + p {
+  margin-top: 12px;
+}
+
+.about__card-link {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--red);
+  text-decoration: none;
+}
+
+.about__card-link:hover {
+  text-decoration: underline;
+}
+
 /* ── County Finder ── */
 .county-finder {
   background: var(--navy);
@@ -331,6 +346,30 @@ body {
   border-radius: 4px;
 }
 
+/* in-person clinic panel */
+.county-result__inperson-place {
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 4px;
+}
+
+.county-result__inperson-list {
+  margin: 4px 0 16px 20px;
+  padding: 0;
+}
+
+.county-result__inperson-list li {
+  font-size: 0.9rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.county-result__inperson-hours {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
 @media (max-width: 480px) {
   .county-result__dual { grid-template-columns: 1fr; }
 }
@@ -366,4 +405,129 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ── Footer partners ── */
+.footer__partners {
+  margin: 24px auto;
+  max-width: 700px;
+}
+
+.footer__partners-label,
+.footer__funding {
+  font-size: 0.8rem;
+}
+
+.footer__partners-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: rgba(0, 48, 87, 0.6);
+  margin-bottom: 16px;
+}
+
+.footer__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 20px;
+}
+
+.footer__logos img {
+  height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+.footer__funding {
+  margin-bottom: 12px;
+  color: rgba(0, 48, 87, 0.75);
+}
+
+.footer__funder-logo {
+  height: 56px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+/* ── Leaving-site modal ── */
+.leave-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.leave-modal[hidden] {
+  display: none;
+}
+
+.leave-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 48, 87, 0.6);
+}
+
+.leave-modal__box {
+  position: relative;
+  background: var(--white);
+  border-top: 6px solid var(--red);
+  border-radius: 8px;
+  padding: 28px 26px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.leave-modal__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.leave-modal__text {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.leave-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.leave-modal__btn {
+  display: inline-block;
+  padding: 12px 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.leave-modal__btn--ghost {
+  background: var(--light-gray);
+  color: var(--navy);
+}
+
+.leave-modal__btn--primary {
+  background: var(--red);
+  color: var(--white);
+}
+
+.leave-modal__btn--primary:hover {
+  background: #b8221a;
 }

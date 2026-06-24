@@ -75,9 +75,9 @@ const countyMap = {
 
 const orgInfo = {
   lanwt: {
-    name: "Legal Aid of Northwest Texas",
+    name: "Legal Aid of NorthWest Texas",
     desc: "Serving 114 counties across North, West, and Central Texas.",
-    url: "https://forms.cloud.microsoft/r/5cCiuTLXPG?origin=lprLink",
+    url: "https://lanwtoi.legalserver.org/modules/matter/extern_intake.php?pid=132&h=f0baaf&",
     label: "Apply",
   },
   trla: {
@@ -94,12 +94,41 @@ const orgInfo = {
   },
 };
 
-// Per-county apply-link overrides. TRLA uses county-specific intake forms for
-// El Paso and Brewster; all other TRLA counties fall back to the general help page.
+// Per-county apply-link overrides.
+//  - LANWT counties default to the LegalServer intake link (see orgInfo.lanwt).
+//    Lubbock, Taylor (Abilene), and Collin (McKinney) keep the Microsoft Forms
+//    intake instead. Dallas is an in-person clinic — see countyInPerson below.
+//  - TRLA: Brewster uses a county-specific intake form; all other TRLA counties
+//    (including El Paso) fall back to the general help page.
 // NOTE: remove the Brewster override on 2026-08-02 (it falls back to trla.org/help).
+const LANWT_MS_FORM = "https://forms.cloud.microsoft/r/5cCiuTLXPG?origin=lprLink";
 const countyUrlOverrides = {
-  "El Paso": "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f9bNOiHpSQ1JulD1IxGad_lUNlFXTDNUMzVTNVo0TVBYQlpTQzJGMlA5VS4u&route=shorturl",
+  "Lubbock": LANWT_MS_FORM,
+  "Taylor": LANWT_MS_FORM,
+  "Collin": LANWT_MS_FORM,
   "Brewster": "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f3aNFzITsmxHmvIcPn0n095UNkxMVlBTQlpYUUEwTzczTk1WMjFXOU02VC4u&route=shorturl",
+};
+
+// Counties whose clinics are in person — these render a location/instructions
+// panel instead of an apply link.
+const countyInPerson = {
+  "Dallas": {
+    org: "Legal Aid of NorthWest Texas",
+    desc: "The Dallas County clinic will be held in person. No online application is required — please come to the clinic site:",
+    html: `<p class="county-result__inperson-place">[Clinic site address — to be confirmed]</p>`,
+  },
+  "Bowie": {
+    org: "Lone Star Legal Aid",
+    desc: "Please apply in person at one of the following locations:",
+    html: `
+      <ul class="county-result__inperson-list">
+        <li>Texarkana Homeless Coalition</li>
+        <li>Randy Sams Shelter</li>
+        <li>Mission Texarkana</li>
+        <li>Bowie County Family Health Center</li>
+      </ul>
+      <p class="county-result__inperson-hours">Outreach will take place from 10:00 a.m. to 2:00 p.m.</p>`,
+  },
 };
 
 function handleCountySubmit(e) {
@@ -116,7 +145,16 @@ function handleCountySubmit(e) {
   resultEl.innerHTML = "";
   resultEl.className = "county-result visible";
 
-  if (org === "harris") {
+  if (countyInPerson[county]) {
+    const ip = countyInPerson[county];
+    resultEl.innerHTML = `
+      <div class="county-result__header">${county} County — In-Person Clinic</div>
+      <div class="county-result__body">
+        <p class="county-result__org">${ip.org}</p>
+        <p class="county-result__desc">${ip.desc}</p>
+        ${ip.html}
+      </div>`;
+  } else if (org === "harris") {
     resultEl.innerHTML = `
       <div class="county-result__header">Harris County (Houston) — Two Organizations Serve Your Area</div>
       <div class="county-result__body">
@@ -161,4 +199,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("county-form").addEventListener("submit", handleCountySubmit);
+
+  // Leaving-site confirmation for external links (e.g. Texas Law Help).
+  const modal = document.getElementById("leave-modal");
+  const continueBtn = document.getElementById("leave-modal-continue");
+
+  const openModal = (url) => {
+    continueBtn.href = url;
+    modal.hidden = false;
+  };
+  const closeModal = () => {
+    modal.hidden = true;
+    continueBtn.href = "#";
+  };
+
+  document.querySelectorAll("a[data-external]").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal(link.href);
+    });
+  });
+
+  modal.querySelectorAll("[data-leave-cancel]").forEach((el) => {
+    el.addEventListener("click", closeModal);
+  });
+  continueBtn.addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) closeModal();
+  });
 });

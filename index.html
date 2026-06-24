@@ -87,6 +87,22 @@
             Texans. There is no catch.
           </p>
         </div>
+        <div class="about__card">
+          <h3>More Resources</h3>
+          <p>
+            Find self-help guides and additional legal information on expunctions and
+            nondisclosures at Texas Law Help.
+          </p>
+          <p>
+            <a
+              href="https://texaslawhelp.org"
+              class="about__card-link"
+              data-external
+              target="_blank"
+              rel="noopener"
+            >Visit TexasLawHelp.org →</a>
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -111,6 +127,12 @@
     <div id="county-result" class="county-result" aria-live="polite"></div>
   </section>
 
+  <!-- Clinic chatbot — embed code pending from Elliot. Drop the provided
+       embed snippet inside this container when it arrives. -->
+  <!-- BEGIN clinic-chatbot-embed -->
+  <div id="clinic-chatbot"></div>
+  <!-- END clinic-chatbot-embed -->
+
   <!-- Footer -->
   <footer class="footer">
     <img
@@ -118,15 +140,52 @@
       alt="ClearPath TX"
       class="footer__logo"
     />
-    <p>A project of <strong>Legal Aid of Northwest Texas</strong></p>
+    <p>A project of <strong>Legal Aid of NorthWest Texas</strong></p>
+
+    <div class="footer__partners">
+      <p class="footer__partners-label">In partnership with</p>
+      <div class="footer__logos">
+        <img src="assets/logo-lanwt.svg" alt="Legal Aid of NorthWest Texas" />
+        <img src="assets/logo-trla.png" alt="Texas RioGrande Legal Aid" />
+        <img src="assets/logo-lsla.svg" alt="Lone Star Legal Aid" />
+        <img src="assets/logo-beacon.png" alt="Beacon Law" />
+      </div>
+      <p class="footer__funding">
+        Clear Path Texas is funded by the
+        <strong>Texas Access to Justice Foundation</strong>.
+      </p>
+      <img
+        src="assets/logo-tajf.png"
+        alt="Texas Access to Justice Foundation"
+        class="footer__funder-logo"
+      />
+    </div>
+
     <p>Clear Path Texas</p>
-    <p><a href="https://www.lanwt.org" target="_blank" rel="noopener">www.lanwt.org</a></p>
+    <p><a href="https://www.legalaidtx.org" target="_blank" rel="noopener">www.legalaidtx.org</a></p>
     <p class="footer__disclaimer">
       This website provides general information only and does not constitute legal advice.
       Eligibility for expunction depends on your individual circumstances. Contact a legal
       aid attorney to understand your options.
     </p>
   </footer>
+
+  <!-- Leaving-site confirmation modal -->
+  <div id="leave-modal" class="leave-modal" role="dialog" aria-modal="true" aria-labelledby="leave-modal-title" hidden>
+    <div class="leave-modal__backdrop" data-leave-cancel></div>
+    <div class="leave-modal__box">
+      <h3 id="leave-modal-title" class="leave-modal__title">You're leaving this website</h3>
+      <p class="leave-modal__text">
+        You're about to visit <strong>TexasLawHelp.org</strong>, a separate website
+        operated by another organization. Clear Path Texas isn't responsible for its
+        content. Would you like to continue?
+      </p>
+      <div class="leave-modal__actions">
+        <button type="button" class="leave-modal__btn leave-modal__btn--ghost" data-leave-cancel>Stay here</button>
+        <a id="leave-modal-continue" class="leave-modal__btn leave-modal__btn--primary" href="#" target="_blank" rel="noopener">Continue →</a>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
