@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+# Static-site deploy. Replaces GitHub's legacy "deploy from branch" pipeline,
+# which we could not control: a slow publish would hit the action's timeout,
+# leave a zombie deployment, and that zombie then BLOCKED every later push
+# ("cancel X first"). The concurrency group below makes a new push cancel any
+# in-flight deploy instead of getting blocked, so the queue can never wedge.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# A new push supersedes an in-flight deploy rather than queuing behind it.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1200000        # 20 min — tolerate GitHub's slow publishes
+          error_count: 20
