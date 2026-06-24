@@ -443,15 +443,7 @@ body {
 }
 
 .footer__funding {
-  margin-bottom: 12px;
   color: rgba(0, 48, 87, 0.75);
-}
-
-.footer__funder-logo {
-  height: 56px;
-  width: auto;
-  max-width: 220px;
-  object-fit: contain;
 }
 
 /* ── Leaving-site modal ── */

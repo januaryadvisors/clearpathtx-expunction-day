@@ -208,9 +208,11 @@ document.addEventListener("DOMContentLoaded", () => {
     continueBtn.href = url;
     modal.hidden = false;
   };
+  // Note: don't clear continueBtn.href here — closeModal also runs on the
+  // Continue click, and resetting the href before the browser follows the
+  // link would send the new tab to "#". openModal sets a fresh href each time.
   const closeModal = () => {
     modal.hidden = true;
-    continueBtn.href = "#";
   };
 
   document.querySelectorAll("a[data-external]").forEach((link) => {
