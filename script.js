@@ -115,7 +115,7 @@ const countyInPerson = {
   "Dallas": {
     org: "Legal Aid of NorthWest Texas",
     desc: "The Dallas County clinic will be held in person. No online application is required — please come to the clinic site:",
-    html: `<p class="county-result__inperson-place">[Clinic site address — to be confirmed]</p>`,
+    html: `<p class="county-result__inperson-place">Dooney Barber and Beauty Academy<br>4333 Gannon Ln #115, Dallas, TX 75237</p>`,
   },
   "Bowie": {
     org: "Lone Star Legal Aid",
