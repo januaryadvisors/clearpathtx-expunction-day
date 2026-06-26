@@ -17,20 +17,6 @@ body {
   line-height: 1.6;
 }
 
-/* ── Dev Banner ── */
-.dev-banner {
-  background: var(--yellow);
-  color: var(--navy);
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 3px solid var(--navy);
-}
-
 /* ── Hero ── */
 .hero {
   background-color: var(--sky);

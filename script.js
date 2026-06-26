@@ -114,7 +114,7 @@ const countyUrlOverrides = {
 const countyInPerson = {
   "Dallas": {
     org: "Legal Aid of NorthWest Texas",
-    desc: "The Dallas County clinic will be held in person. No online application is required — please come to the clinic site:",
+    desc: "The Dallas County clinic will be held in person on August 1st, 9am–2pm. No online application is required — please come to the clinic site:",
     html: `<p class="county-result__inperson-place">Dooney Barber and Beauty Academy<br>4333 Gannon Ln #115, Dallas, TX 75237</p>`,
   },
   "Bowie": {
