@@ -404,12 +404,12 @@ body {
   font-size: 0.8rem;
 }
 
-.footer__partners-label {
+p.footer__partners-label {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 700;
   color: rgba(0, 48, 87, 0.6);
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .footer__logos {
