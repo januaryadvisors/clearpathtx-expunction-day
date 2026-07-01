@@ -428,6 +428,10 @@ body {
   object-fit: contain;
 }
 
+.footer__logos img[alt="Texas RioGrande Legal Aid"] {
+  height: 45.6px;
+}
+
 .footer__funding {
   color: rgba(0, 48, 87, 0.75);
 }
