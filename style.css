@@ -409,7 +409,7 @@ body {
   letter-spacing: 0.1em;
   font-weight: 700;
   color: rgba(0, 48, 87, 0.6);
-  margin-bottom: 16px;
+  margin-bottom: 26px;
 }
 
 .footer__logos {
@@ -418,7 +418,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .footer__logos img {
@@ -428,8 +428,9 @@ body {
   object-fit: contain;
 }
 
-.footer__logos img[alt="Texas RioGrande Legal Aid"] {
-  height: 45.6px;
+.footer__logos img[alt="Texas RioGrande Legal Aid"],
+.footer__logos img[alt="Lone Star Legal Aid"] {
+  height: 32px;
 }
 
 .footer__funding {
