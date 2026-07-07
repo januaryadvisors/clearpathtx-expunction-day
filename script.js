@@ -96,8 +96,8 @@ const orgInfo = {
 
 // Per-county apply-link overrides.
 //  - LANWT counties default to the LegalServer intake link (see orgInfo.lanwt).
-//    Lubbock, Taylor (Abilene), and Collin (McKinney) keep the Microsoft Forms
-//    intake instead. Dallas is an in-person clinic — see countyInPerson below.
+//    Lubbock, Taylor (Abilene), Collin (McKinney), and Dallas keep the
+//    Microsoft Forms intake instead.
 //  - TRLA: Brewster uses a county-specific intake form; all other TRLA counties
 //    (including El Paso) fall back to the general help page.
 // NOTE: remove the Brewster override on 2026-08-02 (it falls back to trla.org/help).
@@ -106,17 +106,13 @@ const countyUrlOverrides = {
   "Lubbock": LANWT_MS_FORM,
   "Taylor": LANWT_MS_FORM,
   "Collin": LANWT_MS_FORM,
+  "Dallas": LANWT_MS_FORM,
   "Brewster": "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f3aNFzITsmxHmvIcPn0n095UNkxMVlBTQlpYUUEwTzczTk1WMjFXOU02VC4u&route=shorturl",
 };
 
 // Counties whose clinics are in person — these render a location/instructions
 // panel instead of an apply link.
 const countyInPerson = {
-  "Dallas": {
-    org: "Legal Aid of NorthWest Texas",
-    desc: "The Dallas County clinic will be held in person on August 1st, 9am–2pm. No online application is required — please come to the clinic site:",
-    html: `<p class="county-result__inperson-place">Dooney Barber and Beauty Academy<br>4333 Gannon Ln #115, Dallas, TX 75237</p>`,
-  },
   "Bowie": {
     org: "Lone Star Legal Aid",
     desc: "Please apply in person at one of the following locations:",
