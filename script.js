@@ -84,7 +84,7 @@ const orgInfo = {
     name: "Texas RioGrande Legal Aid (TRLA)",
     desc: "Serving 68 counties across South, West, and Central Texas.",
     url: "https://www.trla.org/help",
-    label: "Apply",
+    label: "Visit TRLA's website",
   },
   lsla: {
     name: "Lone Star Legal Aid",
@@ -98,16 +98,15 @@ const orgInfo = {
 //  - LANWT counties default to the LegalServer intake link (see orgInfo.lanwt).
 //    Lubbock, Taylor (Abilene), Collin (McKinney), and Dallas keep the
 //    Microsoft Forms intake instead.
-//  - TRLA: Brewster uses a county-specific intake form; all other TRLA counties
-//    (including El Paso) fall back to the general help page.
-// NOTE: remove the Brewster override on 2026-08-02 (it falls back to trla.org/help).
+//  - TRLA: all TRLA counties (including El Paso and Brewster) link to TRLA's
+//    website. Per TRLA (Sita Stone, 2026-07-20), the clinics are full, so the
+//    site points people to trla.org rather than a clinic-specific intake form.
 const LANWT_MS_FORM = "https://forms.cloud.microsoft/r/5cCiuTLXPG?origin=lprLink";
 const countyUrlOverrides = {
   "Lubbock": LANWT_MS_FORM,
   "Taylor": LANWT_MS_FORM,
   "Collin": LANWT_MS_FORM,
   "Dallas": LANWT_MS_FORM,
-  "Brewster": "https://forms.office.com/pages/responsepage.aspx?id=r_0sCXTsb0OJ74sahFt5f3aNFzITsmxHmvIcPn0n095UNkxMVlBTQlpYUUEwTzczTk1WMjFXOU02VC4u&route=shorturl",
 };
 
 // Counties whose clinics are in person — these render a location/instructions
