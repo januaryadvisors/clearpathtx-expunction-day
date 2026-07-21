@@ -332,6 +332,31 @@ body {
   border-radius: 4px;
 }
 
+/* registration-full notice */
+.county-result__full-note {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.county-result__full-note:last-child {
+  margin-bottom: 0;
+}
+
+.county-result__dual-card--full p {
+  margin-bottom: 8px;
+}
+
+.county-result__dual-card--full p:last-child {
+  margin-bottom: 0;
+}
+
+.county-result__dual-full-heading {
+  font-weight: 700;
+  color: var(--navy);
+}
+
 /* in-person clinic panel */
 .county-result__inperson-place {
   font-weight: 700;
