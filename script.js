@@ -112,7 +112,7 @@ const orgFull = {
     name: "Beacon Law",
     heading: "Registration Full",
     body: [
-      "Thank you for your interest in the Beacon Law's SEP Clinic Day. Registration for this event has reached capacity, and we are unable to accept additional appointments for this clinic.",
+      "Thank you for your interest in Beacon Law's SEP Clinic Day. Registration for this event has reached capacity, and we are unable to accept additional appointments for this clinic.",
       "We appreciate your interest and encourage you to watch for future record-clearing clinics and outreach events.",
     ],
   },
