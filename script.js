@@ -98,12 +98,21 @@ const orgInfo = {
 // "Registration Full" notice instead of an intake link (and, for Harris County,
 // replace only the LSLA card in the dual-org panel).
 //  - LSLA: at capacity per Thai-Anh Nguyen (LSLA), 2026-07-21.
+//  - Beacon Law: at capacity per Justin Thompson (Beacon Law), 2026-07-21.
 const orgFull = {
   lsla: {
     name: "Lone Star Legal Aid",
     heading: "Registration Full",
     body: [
       "Thank you for your interest in the Lone Star Legal Aid SEP Clinic Day. Registration for this event has reached capacity, and we are unable to accept additional appointments for this clinic.",
+      "We appreciate your interest and encourage you to watch for future record-clearing clinics and outreach events.",
+    ],
+  },
+  beacon: {
+    name: "Beacon Law",
+    heading: "Registration Full",
+    body: [
+      "Thank you for your interest in the Beacon Law's SEP Clinic Day. Registration for this event has reached capacity, and we are unable to accept additional appointments for this clinic.",
       "We appreciate your interest and encourage you to watch for future record-clearing clinics and outreach events.",
     ],
   },
@@ -168,30 +177,48 @@ function handleCountySubmit(e) {
         ${ip.html}
       </div>`;
   } else if (org === "harris") {
-    const lslaCard = orgFull.lsla
+    // Both Harris organizations render either their normal apply card or, once
+    // they hit capacity, their own "Registration Full" notice.
+    const harrisOrgs = [
+      {
+        key: "lsla",
+        name: "Lone Star Legal Aid",
+        desc: "Free civil legal services for low-income Texans in the Houston area.",
+        url: "https://survey.legal/jDVANBsHKmyR",
+      },
+      {
+        key: "beacon",
+        name: "Beacon Law",
+        desc: "Free legal services for people experiencing homelessness and low-income individuals in Houston.",
+        url: "https://www.jotform.com/beaconlaw/record-clearing",
+      },
+    ];
+    const cards = harrisOrgs.map(o => orgFull[o.key]
       ? `<div class="county-result__dual-card county-result__dual-card--full">
-            <h4>Lone Star Legal Aid</h4>
-            <p class="county-result__dual-full-heading">${orgFull.lsla.heading}</p>
-            ${orgFull.lsla.body.map(p => `<p>${p}</p>`).join("")}
+            <h4>${o.name}</h4>
+            <p class="county-result__dual-full-heading">${orgFull[o.key].heading}</p>
+            ${orgFull[o.key].body.map(p => `<p>${p}</p>`).join("")}
           </div>`
       : `<div class="county-result__dual-card">
-            <h4>Lone Star Legal Aid</h4>
-            <p>Free civil legal services for low-income Texans in the Houston area.</p>
-            <a href="https://survey.legal/jDVANBsHKmyR" target="_blank" rel="noopener">Apply</a>
-          </div>`;
+            <h4>${o.name}</h4>
+            <p>${o.desc}</p>
+            <a href="${o.url}" target="_blank" rel="noopener">Apply</a>
+          </div>`).join("");
+    const openOrgs = harrisOrgs.filter(o => !orgFull[o.key]);
+    const intro = openOrgs.length === 0
+      ? "Both organizations serving Harris County have reached capacity for SEP Clinic Day. We encourage you to watch for future record-clearing clinics and outreach events."
+      : openOrgs.length === 1
+        ? `Two organizations provide free legal assistance in Harris County. ${harrisOrgs.find(o => orgFull[o.key]).name}'s clinic registration is now full — you can still apply through ${openOrgs[0].name}.`
+        : "Both organizations below provide free legal assistance in Harris County. Visit either one to get help with your expunction.";
+    const header = openOrgs.length === 0
+      ? "Harris County (Houston) — Registration Full"
+      : "Harris County (Houston) — Two Organizations Serve Your Area";
     resultEl.innerHTML = `
-      <div class="county-result__header">Harris County (Houston) — Two Organizations Serve Your Area</div>
+      <div class="county-result__header">${header}</div>
       <div class="county-result__body">
-        <p class="county-result__desc" style="margin-bottom:20px;">${orgFull.lsla
-          ? "Two organizations provide free legal assistance in Harris County. Lone Star Legal Aid's clinic registration is now full — you can still apply through Beacon Law."
-          : "Both organizations below provide free legal assistance in Harris County. Visit either one to get help with your expunction."}</p>
+        <p class="county-result__desc" style="margin-bottom:20px;">${intro}</p>
         <div class="county-result__dual">
-          ${lslaCard}
-          <div class="county-result__dual-card">
-            <h4>Beacon Law</h4>
-            <p>Free legal services for people experiencing homelessness and low-income individuals in Houston.</p>
-            <a href="https://www.jotform.com/beaconlaw/record-clearing" target="_blank" rel="noopener">Apply</a>
-          </div>
+          ${cards}
         </div>
       </div>`;
   } else if (orgFull[org]) {
