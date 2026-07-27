@@ -96,18 +96,10 @@ const orgInfo = {
 
 // Organizations whose SEP Clinic Day registration has closed. These render a
 // "Registration Full" notice instead of an intake link (and, for Harris County,
-// replace only the LSLA card in the dual-org panel).
-//  - LSLA: at capacity per Thai-Anh Nguyen (LSLA), 2026-07-21.
+// replace only that org's card in the dual-org panel).
 //  - Beacon Law: at capacity per Justin Thompson (Beacon Law), 2026-07-21.
+//  - LSLA was listed here 2026-07-21 and reopened 2026-07-27 per Thai-Anh Nguyen.
 const orgFull = {
-  lsla: {
-    name: "Lone Star Legal Aid",
-    heading: "Registration Full",
-    body: [
-      "Thank you for your interest in the Lone Star Legal Aid SEP Clinic Day. Registration for this event has reached capacity, and we are unable to accept additional appointments for this clinic.",
-      "We appreciate your interest and encourage you to watch for future record-clearing clinics and outreach events.",
-    ],
-  },
   beacon: {
     name: "Beacon Law",
     heading: "Registration Full",
