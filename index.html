@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-  <link rel="stylesheet" href="style.css?v=20260701" />
+  <link rel="stylesheet" href="style.css?v=20260728" />
   <!-- Tidio live chat -->
   <script src="//code.tidio.co/xdauwimoo4wyonfglxpiui5n9fqbjiqt.js" async></script>
 </head>
@@ -122,6 +122,33 @@
     </form>
 
     <div id="county-result" class="county-result" aria-live="polite"></div>
+  </section>
+
+  <!-- CLE training video. Placed after the county finder on purpose: it is
+       attorney/volunteer-facing, and shouldn't sit between an attendee and
+       the "find my legal aid" form. -->
+  <section class="video-section" aria-labelledby="video-heading">
+    <div class="container">
+      <p class="section-label">For Attorneys &amp; Volunteers</p>
+      <h2 class="section-title" id="video-heading">Training: Expunctions &amp; Nondisclosures in Texas</h2>
+      <p class="video-section__intro">
+        A recorded CLE session covering the mechanics of record clearing in Texas —
+        eligibility, common respondents, and the practical steps of filing. Intended for
+        legal aid attorneys and volunteers supporting the clinic.
+      </p>
+
+      <!-- youtube-nocookie.com: no tracking cookies until the viewer hits play -->
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/IY4LqaHzXAA"
+          title="Expunction &amp; Nondisclosure CLE"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
   </section>
 
   <!-- Clinic chatbot — embed code pending from Elliot. Drop the provided
