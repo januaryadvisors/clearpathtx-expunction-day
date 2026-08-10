@@ -17,6 +17,27 @@ body {
   line-height: 1.6;
 }
 
+/* ── Post-event notice ── */
+.event-over {
+  background: var(--navy);
+  color: var(--white);
+  padding: 20px;
+  text-align: center;
+}
+
+.event-over__title {
+  font-size: clamp(1.05rem, 3vw, 1.25rem);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.event-over__text {
+  font-size: 0.95rem;
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.88);
+}
+
 /* ── Hero ── */
 .hero {
   background-color: var(--sky);
@@ -330,55 +351,6 @@ body {
   font-weight: 700;
   font-size: 0.8rem;
   border-radius: 4px;
-}
-
-/* registration-full notice */
-.county-result__full-note {
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.county-result__full-note:last-child {
-  margin-bottom: 0;
-}
-
-.county-result__dual-card--full p {
-  margin-bottom: 8px;
-}
-
-.county-result__dual-card--full p:last-child {
-  margin-bottom: 0;
-}
-
-.county-result__dual-full-heading {
-  font-weight: 700;
-  color: var(--navy);
-}
-
-/* in-person clinic panel */
-.county-result__inperson-place {
-  font-weight: 700;
-  color: var(--navy);
-  margin-top: 4px;
-}
-
-.county-result__inperson-list {
-  margin: 4px 0 16px 20px;
-  padding: 0;
-}
-
-.county-result__inperson-list li {
-  font-size: 0.9rem;
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-
-.county-result__inperson-hours {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--navy);
 }
 
 @media (max-width: 480px) {

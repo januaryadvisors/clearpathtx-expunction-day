@@ -4,15 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Statewide Expunction Clinic Day — ClearPathTX</title>
-  <meta name="description" content="Join us July 31 and Aug 1, 2026 for the Texas Statewide Expunction Clinic Day. Free legal help to clear your record, available across Texas." />
+  <meta name="description" content="The Texas Statewide Expunction Clinic Day took place July 31 and Aug 1, 2026 and has concluded. Free legal help to clear your record is still available — find the legal aid organization serving your county." />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-  <link rel="stylesheet" href="style.css?v=20260728" />
+  <link rel="stylesheet" href="style.css?v=20260810" />
   <!-- Tidio live chat -->
   <script src="//code.tidio.co/xdauwimoo4wyonfglxpiui5n9fqbjiqt.js" async></script>
 </head>
 <body>
+
+  <!-- Post-event notice. The clinic ran July 31 – Aug 1, 2026; the page stays up
+       as a referral point to the participating legal aid organizations. -->
+  <div class="event-over" role="status">
+    <div class="container">
+      <p class="event-over__title">Statewide Expunction Clinic Day has concluded.</p>
+      <p class="event-over__text">
+        Thank you to everyone who attended. The clinic took place July 31 and August 1, 2026,
+        and registration is now closed. You can still get free help with your record —
+        select your county below to reach the legal aid organization serving your area.
+      </p>
+    </div>
+  </div>
 
   <!-- Hero -->
   <header class="hero">
@@ -109,8 +122,9 @@
     <p class="section-label">Find Your Legal Aid</p>
     <h2 class="section-title" id="finder-heading">Select Your County</h2>
     <p class="county-finder__subtitle">
-      To apply, select the county where you live.
-      Then choose the legal aid organization listed for your county to begin your application.
+      Clinic Day registration has closed, but help is still available. Select the county where
+      you live to find the legal aid organization serving your area, then visit their website
+      to apply for assistance.
     </p>
 
     <form id="county-form" class="county-finder__form" novalidate>
@@ -118,7 +132,7 @@
       <select id="county-select" class="county-finder__select" aria-label="Select your Texas county">
         <option value="">— Select a county —</option>
       </select>
-      <button type="submit" class="county-finder__btn">Find My Legal Aid and Apply →</button>
+      <button type="submit" class="county-finder__btn">Find My Legal Aid →</button>
     </form>
 
     <div id="county-result" class="county-result" aria-live="polite"></div>
@@ -206,6 +220,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260626b"></script>
+  <script src="script.js?v=20260810"></script>
 </body>
 </html>

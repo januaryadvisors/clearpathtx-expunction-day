@@ -73,72 +73,27 @@ const countyMap = {
   "Harris": "harris",
 };
 
+// SEP Clinic Day (July 31 – Aug 1, 2026) has concluded, so the clinic-specific
+// intake forms are retired. Each county now points to its legal aid
+// organization's own website, where people can apply for help year-round.
 const orgInfo = {
   lanwt: {
     name: "Legal Aid of NorthWest Texas",
     desc: "Serving 114 counties across North, West, and Central Texas.",
-    url: "https://lanwtoi.legalserver.org/modules/matter/extern_intake.php?pid=132&h=f0baaf&",
-    label: "Apply",
+    url: "https://legalaidtx.org/",
+    label: "Visit Legal Aid of NorthWest Texas",
   },
   trla: {
     name: "Texas RioGrande Legal Aid (TRLA)",
     desc: "Serving 68 counties across South, West, and Central Texas.",
-    url: "https://www.trla.org/help",
+    url: "https://www.trla.org/",
     label: "Visit TRLA's website",
   },
   lsla: {
     name: "Lone Star Legal Aid",
     desc: "Serving 72 counties across East and Southeast Texas, including Houston.",
-    url: "https://survey.legal/jDVANBsHKmyR",
-    label: "Apply",
-  },
-};
-
-// Organizations whose SEP Clinic Day registration has closed. These render a
-// "Registration Full" notice instead of an intake link (and, for Harris County,
-// replace only that org's card in the dual-org panel).
-//  - Beacon Law: at capacity per Justin Thompson (Beacon Law), 2026-07-21.
-//  - LSLA was listed here 2026-07-21 and reopened 2026-07-27 per Thai-Anh Nguyen.
-const orgFull = {
-  beacon: {
-    name: "Beacon Law",
-    heading: "Registration Full",
-    body: [
-      "Thank you for your interest in Beacon Law's SEP Clinic Day. Registration for this event has reached capacity, and we are unable to accept additional appointments for this clinic.",
-      "We appreciate your interest and encourage you to watch for future record-clearing clinics and outreach events.",
-    ],
-  },
-};
-
-// Per-county apply-link overrides.
-//  - LANWT counties default to the LegalServer intake link (see orgInfo.lanwt).
-//    Lubbock, Taylor (Abilene), Collin (McKinney), and Dallas keep the
-//    Microsoft Forms intake instead.
-//  - TRLA: all TRLA counties (including El Paso and Brewster) link to TRLA's
-//    website. Per TRLA (Sita Stone, 2026-07-20), the clinics are full, so the
-//    site points people to trla.org rather than a clinic-specific intake form.
-const LANWT_MS_FORM = "https://forms.cloud.microsoft/r/5cCiuTLXPG?origin=lprLink";
-const countyUrlOverrides = {
-  "Lubbock": LANWT_MS_FORM,
-  "Taylor": LANWT_MS_FORM,
-  "Collin": LANWT_MS_FORM,
-  "Dallas": LANWT_MS_FORM,
-};
-
-// Counties whose clinics are in person — these render a location/instructions
-// panel instead of an apply link.
-const countyInPerson = {
-  "Bowie": {
-    org: "Lone Star Legal Aid",
-    desc: "Please apply in person at one of the following locations:",
-    html: `
-      <ul class="county-result__inperson-list">
-        <li>Texarkana Homeless Coalition</li>
-        <li>Randy Sams Shelter</li>
-        <li>Mission Texarkana</li>
-        <li>Bowie County Family Health Center</li>
-      </ul>
-      <p class="county-result__inperson-hours">Outreach will take place from 10:00 a.m. to 2:00 p.m.</p>`,
+    url: "https://www.lonestarlegal.org/",
+    label: "Visit Lone Star Legal Aid",
   },
 };
 
@@ -156,80 +111,44 @@ function handleCountySubmit(e) {
   resultEl.innerHTML = "";
   resultEl.className = "county-result visible";
 
-  // In-person clinics take precedence over an org's "registration full" state —
-  // e.g. Bowie's Texarkana outreach continues even though LSLA appointment
-  // registration has closed (per LSLA, 2026-07-21).
-  if (countyInPerson[county]) {
-    const ip = countyInPerson[county];
-    resultEl.innerHTML = `
-      <div class="county-result__header">${county} County — In-Person Clinic</div>
-      <div class="county-result__body">
-        <p class="county-result__org">${ip.org}</p>
-        <p class="county-result__desc">${ip.desc}</p>
-        ${ip.html}
-      </div>`;
-  } else if (org === "harris") {
-    // Both Harris organizations render either their normal apply card or, once
-    // they hit capacity, their own "Registration Full" notice.
+  if (org === "harris") {
     const harrisOrgs = [
       {
-        key: "lsla",
         name: "Lone Star Legal Aid",
         desc: "Free civil legal services for low-income Texans in the Houston area.",
-        url: "https://survey.legal/jDVANBsHKmyR",
+        url: "https://www.lonestarlegal.org/",
       },
       {
-        key: "beacon",
         name: "Beacon Law",
         desc: "Free legal services for people experiencing homelessness and low-income individuals in Houston.",
-        url: "https://www.jotform.com/beaconlaw/record-clearing",
+        url: "https://www.beaconhomeless.org/beaconlaw",
       },
     ];
-    const cards = harrisOrgs.map(o => orgFull[o.key]
-      ? `<div class="county-result__dual-card county-result__dual-card--full">
-            <h4>${o.name}</h4>
-            <p class="county-result__dual-full-heading">${orgFull[o.key].heading}</p>
-            ${orgFull[o.key].body.map(p => `<p>${p}</p>`).join("")}
-          </div>`
-      : `<div class="county-result__dual-card">
-            <h4>${o.name}</h4>
-            <p>${o.desc}</p>
-            <a href="${o.url}" target="_blank" rel="noopener">Apply</a>
-          </div>`).join("");
-    const openOrgs = harrisOrgs.filter(o => !orgFull[o.key]);
-    const intro = openOrgs.length === 0
-      ? "Both organizations serving Harris County have reached capacity for SEP Clinic Day. We encourage you to watch for future record-clearing clinics and outreach events."
-      : openOrgs.length === 1
-        ? `Two organizations provide free legal assistance in Harris County. ${harrisOrgs.find(o => orgFull[o.key]).name}'s clinic registration is now full — you can still apply through ${openOrgs[0].name}.`
-        : "Both organizations below provide free legal assistance in Harris County. Visit either one to get help with your expunction.";
-    const header = openOrgs.length === 0
-      ? "Harris County (Houston) — Registration Full"
-      : "Harris County (Houston) — Two Organizations Serve Your Area";
+    const cards = harrisOrgs.map(o => `
+      <div class="county-result__dual-card">
+        <h4>${o.name}</h4>
+        <p>${o.desc}</p>
+        <a href="${o.url}" target="_blank" rel="noopener">Visit website</a>
+      </div>`).join("");
     resultEl.innerHTML = `
-      <div class="county-result__header">${header}</div>
+      <div class="county-result__header">Harris County (Houston) — Two Organizations Serve Your Area</div>
       <div class="county-result__body">
-        <p class="county-result__desc" style="margin-bottom:20px;">${intro}</p>
+        <p class="county-result__desc" style="margin-bottom:20px;">
+          Both organizations below provide free legal assistance in Harris County.
+          Visit either one to learn how to get help with your expunction.
+        </p>
         <div class="county-result__dual">
           ${cards}
         </div>
       </div>`;
-  } else if (orgFull[org]) {
-    const full = orgFull[org];
-    resultEl.innerHTML = `
-      <div class="county-result__header">${county} County — ${full.heading}</div>
-      <div class="county-result__body">
-        <p class="county-result__org">${full.name}</p>
-        ${full.body.map(p => `<p class="county-result__full-note">${p}</p>`).join("")}
-      </div>`;
   } else {
     const info = orgInfo[org];
-    const url = countyUrlOverrides[county] || info.url;
     resultEl.innerHTML = `
       <div class="county-result__header">${county} County — Your Legal Aid Organization</div>
       <div class="county-result__body">
         <p class="county-result__org">${info.name}</p>
         <p class="county-result__desc">${info.desc}</p>
-        <a class="county-result__link" href="${url}" target="_blank" rel="noopener">${info.label} →</a>
+        <a class="county-result__link" href="${info.url}" target="_blank" rel="noopener">${info.label} →</a>
       </div>`;
   }
 
