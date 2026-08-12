@@ -92,8 +92,9 @@ const orgInfo = {
   lsla: {
     name: "Lone Star Legal Aid",
     desc: "Serving 72 counties across East and Southeast Texas, including Houston.",
-    url: "https://www.lonestarlegal.org/",
-    label: "Visit Lone Star Legal Aid",
+    // Dedicated LSLA expunction intake link (provided by LSLA, Aug 2026).
+    url: "https://survey.legal/jDVANBsHKmyR",
+    label: "Apply with Lone Star Legal Aid",
   },
 };
 
@@ -116,19 +117,21 @@ function handleCountySubmit(e) {
       {
         name: "Lone Star Legal Aid",
         desc: "Free civil legal services for low-income Texans in the Houston area.",
-        url: "https://www.lonestarlegal.org/",
+        url: "https://survey.legal/jDVANBsHKmyR",
+        cta: "Apply online",
       },
       {
         name: "Beacon Law",
         desc: "Free legal services for people experiencing homelessness and low-income individuals in Houston.",
         url: "https://www.beaconhomeless.org/beaconlaw",
+        cta: "Visit website",
       },
     ];
     const cards = harrisOrgs.map(o => `
       <div class="county-result__dual-card">
         <h4>${o.name}</h4>
         <p>${o.desc}</p>
-        <a href="${o.url}" target="_blank" rel="noopener">Visit website</a>
+        <a href="${o.url}" target="_blank" rel="noopener">${o.cta}</a>
       </div>`).join("");
     resultEl.innerHTML = `
       <div class="county-result__header">Harris County (Houston) — Two Organizations Serve Your Area</div>
